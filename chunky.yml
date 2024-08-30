@@ -1,0 +1,52 @@
+# Chunky Configuration
+
+# General settings
+world-border: true  # Use world borders to limit the chunk generation area
+progress-bar: true
+progress-log: false  # Disable logging for reduced disk I/O
+pause-for-players: true
+safe-mode: true
+
+# Chunk loading and generation
+threads: 2  # Use fewer threads to reduce CPU and memory usage (increase only if server has excess CPU)
+batch-size: 8  # Smaller batch size to minimize impact on TPS and MSPT
+delay: 5  # Increase delay to reduce strain on the server; 5 ticks provides a balance
+
+# World generation
+generate-structures: false  # Disable to reduce processing time and memory usage
+generate-oceans: false  # Disable unnecessary ocean generation
+generate-caves: false  # Disable if caves are not needed
+generate-mountains: false  # Disable mountain generation to save resources
+generate-nether: false  # Only enable if generating the Nether; keep false otherwise
+generate-end: false  # Only enable if generating the End; keep false otherwise
+
+# Chunk processing
+keep-loaded: false  # Unload chunks after generation to free up memory
+lighting: false  # Disable lighting data generation to reduce CPU and memory usage
+height-limit: 128  # Lower the height limit if you do not need the full 256 blocks (default height for most servers)
+
+# Logging
+verbose-logging: false  # Keep logging minimal to reduce disk usage and processing overhead
+error-log: true  # Only log errors to avoid clutter
+
+# Safety settings
+memory-threshold: 80  # Lower memory threshold to pause generation earlier and prevent crashes
+tps-threshold: 19.0  # Keep TPS threshold high to ensure server performance stays optimal
+
+# Backup and restoration
+auto-backup: false  # Disable backups during generation to save on disk I/O; do manual backups instead
+backup-interval: 1h  # Increase backup interval if auto-backup is needed (otherwise, keep it disabled)
+
+# Pause conditions
+pause-on-player-join: true
+pause-on-player-move: true
+pause-on-world-save: true  # Ensure that generation pauses during world saves to maintain stability
+
+# Optimization flags
+use-async-chunk-loading: true  # Keep asynchronous loading enabled for smoother performance
+use-async-lighting: false  # Disable async lighting to further reduce CPU usage
+
+# Advanced options
+auto-resume: true  # Automatically resume generation after a pause
+stop-on-error: true  # Halt the process if an error is encountered
+save-state: true  # Save the generation state to resume later if needed
